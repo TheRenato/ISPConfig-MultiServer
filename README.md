@@ -29,7 +29,7 @@ apt-get -y upgrade
 apt-get -y install ntp ntpdate
 
 
-### Swap file source: https://www.digitalocean.com/community/tutorials/how-to-configure-virtual-memory-swap-file-on-a-vps
+##### Swap file source: https://www.digitalocean.com/community/tutorials/how-to-configure-virtual-memory-swap-file-on-a-vps
 
 
 cd /var
