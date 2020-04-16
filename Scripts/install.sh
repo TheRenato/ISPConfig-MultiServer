@@ -44,9 +44,9 @@ echo " "
 echo "5)  Now we will create the swap file. "
 echo "    OBSERVE! This will NOT check if you have SWAPON or not."
 echo " "
-echo "6)	Install Nginx and allow HTTP and HTTPS traffic."
-echo "7)	Add a Nginx webpage in external server with load balancer."
-echo "8)	Add a Nginx webpage in this server"
+echo "6)	Let's do the steps 1, 2, 4 and 5."
+echo "7)	And now the ISPConfig installation script from servisys."
+echo "8)	Or use my forked version of the ISPConfig installation script from servisys."
 echo " 		"
 echo "9)	Reboot"
 echo "	"
@@ -120,16 +120,26 @@ then
 
 elif [ "$varNr" -eq 6 ]
 then
-	nginx_inst
+	apt update
+	apt -qy upgrade
+	ufw_nano_man
+	apt-get -y install ntp ntpdate
+	ufw allow ssh
+	ufw enable
+  add_hosts_to_hosts_file
+  change_hostname_file
+	create_swap
 	echo " "
 	echo " "
 	echo "Done!! "
+	echo "You should reboot "
 	echo " "
 	echo " "
+	./Scripts/install.sh
 
 elif [ "$varNr" -eq 7 ]
 then
-	nginx_load_balancer
+	cd /tmp; wget -O installer.tgz "https://github.com/servisys/ispconfig_setup/tarball/master"; tar zxvf installer.tgz; cd *ispconfig*; sudo bash install.sh
 	echo " "
 	echo " "
 	echo "Done!! "
@@ -139,7 +149,7 @@ then
 
 elif [ "$varNr" -eq 8 ]
 then
-	nginx_local_page
+	cd /tmp; wget -O installer.tgz "https://github.com/TheRenato/ispconfig_setup/tarball/master"; tar zxvf installer.tgz; cd *ispconfig*; sudo bash install.sh
 	echo " "
 	echo " "
 	echo "Done!! "
