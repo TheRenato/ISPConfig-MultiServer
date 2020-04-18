@@ -1,10 +1,11 @@
 # ISPConfig-MultiServer
 
-Some notes and steps for ISPconfig multiserver installation:
+Some notes and steps for ISPconfig multiserver installation, and some own created scripts to prepare the server for a ISPConfig installation.
 
+You can follow the notes bellow or just download the repo to your server and run the script install.sh.
+Observe, some function in the script will only work in Debian 10.
 
-
-## First run on every server:
+## Do it manually first run on every server:
 
 ### All the same:
 
@@ -71,7 +72,7 @@ sysctl -w vm.swappiness=30
 sysctl -a | grep vm.swappiness
 ```
 ### This is individual for every server (change so it fits your domain):
-
+#### Observe! In Debian 10 it should be ```hostnamectl set-hostname``` instead editing directly to ```/etc/hostname``` 
 #### web1
 ```
 echo web1.yourdomain.com > /etc/hostname

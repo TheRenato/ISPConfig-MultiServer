@@ -50,23 +50,21 @@ function add_hosts_to_hosts_file {
 function change_hostname_file
 {
   if [ -"$THIS_SERVER_IS" == "$WEB_HOSTNAME" ]; then
-    echo "$WEB_DOMAIN" > /etc/hostname
+    hostnamectl set-hostname "$WEB_DOMAIN"
 
   elif [ -"$THIS_SERVER_IS" == "$MAIL_HOSTNAME" ]; then
-    echo "$MAIL_HOSTNAME" > /etc/hostname
+    hostnamectl set-hostname "$MAIL_HOSTNAME"
     echo "$MAIL_DOMAIN" > /etc/mailname
 
   elif [ -"$THIS_SERVER_IS" == "$DB_HOSTNAME" ]; then
-    echo "$DB_HOSTNAME" > /etc/hostname
+    hostnamectl set-hostname "$DB_HOSTNAME"
 
   elif [ -"$THIS_SERVER_IS" == "$NS1_HOSTNAME" ]; then
-    echo "$NS1_HOSTNAME" > /etc/hostname
+    hostnamectl set-hostname "$NS1_HOSTNAME"
 
   elif [ -"$THIS_SERVER_IS" == "$NS2_HOSTNAME" ]; then
-    echo "$NS2_HOSTNAME" > /etc/hostname
+    hostnamectl set-hostname "$NS2_HOSTNAME"
   fi
-
-  /etc/init.d/hostname.sh start
 
 }
 
