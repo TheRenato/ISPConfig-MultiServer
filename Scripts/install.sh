@@ -29,7 +29,7 @@ echo "=========================================="
 echo ""
 echo "So, you want to prepare your server for ISPConfig"
 echo ""
-echo "v1.01"
+echo "v1.02"
 echo "=========================================="
 echo ""
 echo "1)	First run Update and Upgrade the Server."
@@ -135,7 +135,7 @@ then
 	echo "You should reboot "
 	echo " "
 	echo " "
-	./Scripts/install.sh
+	~/Scripts/install.sh
 
 elif [ "$varNr" -eq 7 ]
 then

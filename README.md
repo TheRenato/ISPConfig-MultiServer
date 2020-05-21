@@ -74,27 +74,55 @@ sysctl -a | grep vm.swappiness
 ### This is individual for every server (change so it fits your domain):
 #### Observe! In Debian 10 it should be ```hostnamectl set-hostname``` instead editing directly to ```/etc/hostname``` 
 #### web1
+Ubuntu:
 ```
 echo web1.yourdomain.com > /etc/hostname
 ```
+Debian:
+```
+hostnamectl set-hostname web1.yourdomain.com
+```
+
 #### mail1
+Ubuntu:
 ```
 echo mail1 > /etc/hostname
 ```
+Debian:
+```
+hostnamectl set-hostname mail1
+```
+All:
 ```
 echo mail1.yourdomain.com > /etc/mailname
 ```
 #### db1
+Ubuntu:
 ```
 echo db1 > /etc/hostname
 ```
+
+Debian:
+```
+hostnamectl set-hostname db1
+```
 #### ns1
+Ubuntu:
 ```
 echo ns1 > /etc/hostname
 ```
+Debian:
+```
+hostnamectl set-hostname ns1
+```
 #### ns2
+Ubuntu:
 ```
 echo ns2 > /etc/hostname
+```
+Debian:
+```
+hostnamectl set-hostname ns2
 ```
 #### Maybe reboot
 ```
