@@ -3,7 +3,17 @@
 Some notes and steps for ISPconfig multiserver installation, and some own created scripts to prepare the server for a ISPConfig installation.
 
 You can follow the notes bellow or just download the repo to your server and run the script install.sh.
+Don't forget to edit the .env file.
+
 Observe, some function in the script will only work in Debian 10.
+
+#### Script Issues
+* hostnamectl set-hostname, will not set.
+* The scripts are only tested in Debian 10. 
+
+#### Future feature
+* Pre config all 5 server in one run.
+* You tell me.
 
 ## Do it manually first run on every server:
 
